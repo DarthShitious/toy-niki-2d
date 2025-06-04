@@ -22,8 +22,11 @@ class SimpleINN2D(nn.Module):
 
     def subnet_fc(self, c_in, c_out):
         return nn.Sequential(
-            nn.Linear(c_in, 512), nn.ReLU(),
-            nn.Linear(512, c_out)
+            nn.Linear(c_in, 512),
+            nn.BatchNorm1d(512),
+            nn.ReLU(),
+            nn.Linear(512, c_out),
+            nn.BatchNorm1d(c_out),
         )
 
     def forward(self, x, reverse=False):
