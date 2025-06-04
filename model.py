@@ -26,7 +26,7 @@ class SimpleINN2D(nn.Module):
             nn.BatchNorm1d(512),
             nn.ReLU(),
             nn.Linear(512, c_out),
-            nn.BatchNorm1d(c_out),
+            # nn.BatchNorm1d(c_out),
         )
 
     def forward(self, x, reverse=False):
